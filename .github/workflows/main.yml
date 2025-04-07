@@ -27,7 +27,10 @@ jobs:
         run: docker build -t ${{ secrets.DOCKER_USERNAME }} dasaradhi10/node-js-sample .
 
       - name: Log in to DockerHub
-        run: echo "${{ secrets.Deepak_docker10 }}" | docker login -u "${{ secrets.deepak106 }}" --password-stdin
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER-USERNAME }}" --password-stdin
 
       - name: Push Docker Image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/node-js-sample
+      - name: Print Docker username (debug)
+        run: echo "Docker Username: ${{ secrets.DOCKER_USERNAME }}"
+
